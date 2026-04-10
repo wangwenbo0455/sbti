@@ -4,7 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>SBTI 人格测试</title>
-  <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+  <meta name="google-adsense-account" content="ca-pub-5114668431465830">
+
   <style>
     :root {
       --bg: #f0f4f8;
@@ -919,106 +920,6 @@
       transform: translateX(-50%) translateY(0);
     }
 
-    /* Share card (hidden, used for capture) */
-    .share-card {
-      position: fixed;
-      left: -9999px;
-      top: 0;
-      width: 440px;
-      padding: 36px 28px;
-      background: linear-gradient(145deg, #eef2ff, #fdf2f8, #ede9fe);
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      color: #1a1f36;
-      z-index: -1;
-    }
-    .share-card-inner {
-      background: rgba(255,255,255,0.92);
-      border-radius: 22px;
-      padding: 28px 24px;
-      box-shadow: 0 8px 40px rgba(99, 102, 241, 0.1);
-    }
-    .share-card .sc-label {
-      font-size: 11px;
-      color: #4f46e5;
-      font-weight: 700;
-      letter-spacing: .08em;
-      text-transform: uppercase;
-      margin-bottom: 6px;
-    }
-    .share-card .sc-type {
-      font-size: 32px;
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1.15;
-      color: #1a1f36;
-    }
-    .share-card .sc-match {
-      margin-top: 10px;
-      display: inline-block;
-      font-size: 12px;
-      font-weight: 700;
-      color: #4f46e5;
-      background: rgba(99, 102, 241, 0.08);
-      padding: 6px 14px;
-      border-radius: 999px;
-    }
-    .share-card .sc-desc {
-      margin-top: 16px;
-      font-size: 13px;
-      line-height: 1.8;
-      color: #4b5563;
-      display: -webkit-box;
-      -webkit-line-clamp: 4;
-      -webkit-box-orient: vertical;
-      overflow: hidden;
-    }
-    .share-card .sc-dims {
-      margin-top: 18px;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 8px;
-    }
-    .share-card .sc-dim {
-      background: rgba(99, 102, 241, 0.04);
-      border-radius: 10px;
-      padding: 8px 10px;
-      text-align: center;
-    }
-    .share-card .sc-dim-name {
-      font-size: 10px;
-      color: #6b7280;
-      margin-bottom: 2px;
-    }
-    .share-card .sc-dim-val {
-      font-size: 16px;
-      font-weight: 800;
-      color: #4f46e5;
-    }
-    .share-card .sc-footer {
-      margin-top: 20px;
-      padding-top: 16px;
-      border-top: 1px solid rgba(148,163,184,0.2);
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .share-card .sc-brand {
-      font-size: 16px;
-      font-weight: 800;
-      color: #1a1f36;
-    }
-    .share-card .sc-cta {
-      font-size: 11px;
-      color: #6b7280;
-    }
-    .share-card .sc-poster-img {
-      width: 100%;
-      max-height: 240px;
-      object-fit: contain;
-      border-radius: 14px;
-      margin-bottom: 16px;
-      background: rgba(255,255,255,0.5);
-    }
   </style>
 </head>
 <body>
@@ -1092,10 +993,6 @@
             <button id="toTopBtn" class="btn-primary">回到首页</button>
           </div>
           <div class="share-group">
-            <button id="savePosterBtn" class="btn-share">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
-              保存海报
-            </button>
             <button id="copyTextBtn" class="btn-share">
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
               复制结果
@@ -1106,20 +1003,6 @@
     </section>
 
     <!-- Share card (off-screen, used for poster capture) -->
-    <div id="shareCard" class="share-card">
-      <div class="share-card-inner">
-        <img id="scPosterImg" class="sc-poster-img" alt="" />
-        <div class="sc-label" id="scLabel">你的主类型</div>
-        <div class="sc-type" id="scType">CTRL（拿捏者）</div>
-        <div class="sc-match" id="scMatch">匹配度 92%</div>
-        <div class="sc-desc" id="scDesc"></div>
-        <div class="sc-dims" id="scDims"></div>
-        <div class="sc-footer">
-          <div class="sc-brand">SBTI 人格测试</div>
-          <div class="sc-cta">来测测你的真实人格</div>
-        </div>
-      </div>
-    </div>
   </div>
 
   <!-- Toast notification -->
@@ -2102,111 +1985,6 @@
       t.classList.add('show');
       setTimeout(() => t.classList.remove('show'), duration);
     }
-
-    function buildShareCard(result) {
-      const type = result.finalType;
-      const card = document.getElementById('shareCard');
-
-      // poster image
-      const scImg = document.getElementById('scPosterImg');
-      const imgSrc = TYPE_IMAGES[type.code];
-      if (imgSrc) {
-        scImg.src = imgSrc;
-        scImg.style.display = 'block';
-      } else {
-        scImg.style.display = 'none';
-      }
-
-      document.getElementById('scLabel').textContent = result.modeKicker;
-      document.getElementById('scType').textContent = `${type.code}（${type.cn}）`;
-      document.getElementById('scMatch').textContent = result.badge;
-      document.getElementById('scDesc').textContent = type.desc;
-
-      // top 5 dimensions
-      const topDims = dimensionOrder.slice(0, 6);
-      document.getElementById('scDims').innerHTML = topDims.map(dim => {
-        const level = result.levels[dim];
-        const shortName = dimensionMeta[dim].name.replace(/^[A-Za-z0-9]+\s*/, '');
-        return `<div class="sc-dim"><div class="sc-dim-name">${shortName}</div><div class="sc-dim-val">${level}</div></div>`;
-      }).join('');
-
-      // move on-screen for capture
-      card.style.left = '0';
-      card.style.top = '0';
-      card.style.position = 'fixed';
-      card.style.zIndex = '9998';
-      card.style.opacity = '0';
-      card.style.pointerEvents = 'none';
-    }
-
-    function hideShareCard() {
-      const card = document.getElementById('shareCard');
-      card.style.left = '-9999px';
-      card.style.opacity = '';
-      card.style.zIndex = '-1';
-      card.style.pointerEvents = '';
-    }
-
-    document.getElementById('savePosterBtn').addEventListener('click', async function () {
-      if (!lastResult) return;
-      const btn = this;
-      btn.classList.add('generating');
-      btn.querySelector('svg').style.display = 'none';
-      const origText = btn.textContent.trim();
-      btn.innerHTML = btn.innerHTML.replace(origText, '生成中...');
-
-      try {
-        buildShareCard(lastResult);
-        // wait for image load + paint
-        await new Promise(r => setTimeout(r, 300));
-
-        const card = document.getElementById('shareCard');
-        const canvas = await html2canvas(card, {
-          scale: 2,
-          backgroundColor: null,
-          useCORS: true,
-          logging: false,
-        });
-
-        hideShareCard();
-
-        // try native share on mobile, otherwise download
-        canvas.toBlob(async (blob) => {
-          if (navigator.share && navigator.canShare) {
-            const file = new File([blob], 'SBTI-result.png', { type: 'image/png' });
-            const shareData = { files: [file], title: 'SBTI 人格测试结果' };
-            try {
-              if (navigator.canShare(shareData)) {
-                await navigator.share(shareData);
-                showToast('分享成功');
-                resetBtn();
-                return;
-              }
-            } catch (e) { /* user cancelled or unsupported, fall through */ }
-          }
-          // fallback: download
-          const url = URL.createObjectURL(blob);
-          const a = document.createElement('a');
-          a.href = url;
-          a.download = 'SBTI-result.png';
-          document.body.appendChild(a);
-          a.click();
-          document.body.removeChild(a);
-          URL.revokeObjectURL(url);
-          showToast('海报已保存，快去分享吧');
-          resetBtn();
-        }, 'image/png');
-      } catch (e) {
-        hideShareCard();
-        showToast('生成失败，请重试');
-        resetBtn();
-      }
-
-      function resetBtn() {
-        btn.classList.remove('generating');
-        btn.innerHTML = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>保存海报`;
-      }
-    });
 
     document.getElementById('copyTextBtn').addEventListener('click', async function () {
       if (!lastResult) return;
